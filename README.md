@@ -161,6 +161,29 @@ js/data/courses.js
 ```
 
 Add a new key to the `COURSES` object using the existing schema.
+# LearnRPG
+
+🎮 A gamified learning platform where users master tech skills through RPG-style progression.
+
+## 🌐 Live Demo
+
+👉 **https://sanjay34598.github.io/learnrpg/**
+
+---
+
+## Screenshots
+
+### Home Page
+
+![Home](screenshots/home.png)
+
+### Learning Dashboard
+
+![Learn](screenshots/quest.png)
+
+### Missions
+
+![Mission](screenshots/task.png)
 
 ## Home page
 
