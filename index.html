@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LearnRPG — choose your career path and master tech skills the RPG way. Data Analyst, ML Engineer, Full Stack Dev, and more." />
+  <title>LearnRPG — Choose Your Path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav-brand">⚔️ LearnRPG</div>
+    <a href="#roles" class="nav-cta">Choose Path ↓</a>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🎮 Gamified Learning Platform</div>
+      <h1>Master Tech Skills<br /><span class="hero-gradient">The RPG Way</span></h1>
+      <p>Choose your career path, complete missions, earn XP, and unlock new skills. No videos, no tutorials — just doing.</p>
+      <a href="#roles" class="btn-hero">Choose Your Path →</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-pill">⚔️ 16+ Courses</div>
+      <div class="stat-pill">🏆 50+ Missions</div>
+      <div class="stat-pill">🗺️ 6 Career Paths</div>
+      <div class="stat-pill">💾 Progress Saved Locally</div>
+    </div>
+  </section>
+
+  <!-- ── Role cards ──────────────────────────────────────────────── -->
+  <section class="roles-section" id="roles">
+    <div class="section-label">Career Paths</div>
+    <h2>What do you want to become?</h2>
+    <p class="section-desc">Each path is curated with the exact skills employers look for — in a proven learning order.</p>
+    <div class="roles-grid" id="rolesGrid">
+      <!-- Rendered by home.js -->
+    </div>
+  </section>
+
+  <!-- ── How it works ────────────────────────────────────────────── -->
+  <section class="features-section" id="how">
+    <div class="section-label">How It Works</div>
+    <h2>Learn by actually doing</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🗺️</div>
+        <h3>Quest Maps</h3>
+        <p>Navigate through skills like an RPG adventure. Each mission unlocks the next stage.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Earn XP</h3>
+        <p>Correct answers award XP. Streaks multiply your rewards. Level up as you learn.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Mentor Notes</h3>
+        <p>Solve first, then unlock the expert reasoning behind every answer.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Progress Saved</h3>
+        <p>Your XP and completions save in your browser — pick up exactly where you left off.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────────────────── -->
+  <footer class="home-footer">
+    <p>⚔️ LearnRPG — Learn by doing</p>
+    <p>No sign-up. No back-end. Just open and play.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data/courses.js"></script>
+  <script src="js/data/roles.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

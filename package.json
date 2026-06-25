@@ -1,0 +1,22 @@
+{
+  "name": "learnrpg",
+  "version": "1.0.0",
+  "description": "A static gamified learning platform for career-ready data analytics and tech skills.",
+  "private": false,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "learning",
+    "gamified-learning",
+    "data-analytics",
+    "sql",
+    "python",
+    "pandas",
+    "portfolio",
+    "github-pages"
+  ],
+  "author": "",
+  "license": "MIT"
+}

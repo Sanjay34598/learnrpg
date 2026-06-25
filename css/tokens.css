@@ -1,0 +1,47 @@
+/* ── tokens.css ───────────────────────────────────────────────────── */
+/* Design system: colour palette, typography, radii, shadows, transitions */
+
+:root {
+  /* ── Colour palette ── */
+  --ink:    #17211f;
+  --muted:  #64736e;
+  --paper:  #f7f4e8;
+  --panel:  #fffdf6;
+  --line:   #d9cfb8;
+
+  --teal:   #147a80;
+  --leaf:   #2f7d5b;
+  --gold:   #d99a2b;
+  --brick:  #b8563f;
+  --plum:   #6e496f;
+  --blue:   #3b6f9e;
+
+  /* ── Shadows ── */
+  --shadow:      0 16px 38px rgba(23, 33, 31, 0.14);
+  --shadow-sm:   0  4px  0   rgba(141, 98, 24, 1);
+
+  /* ── Radii ── */
+  --radius:    8px;
+  --radius-lg: 14px;
+  --radius-xl: 24px;
+
+  /* ── Transitions ── */
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+  --ease:     ease;
+
+  /* ── Typography ── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+}
+
+/* Apply base font globally */
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(221, 239, 237, 0.9), rgba(247, 244, 232, 0.96) 45%, rgba(239, 226, 192, 0.92)),
+    repeating-linear-gradient(45deg, rgba(23, 33, 31, 0.035) 0 2px, transparent 2px 14px);
+}

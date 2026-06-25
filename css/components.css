@@ -1,0 +1,462 @@
+/* ── components.css ───────────────────────────────────────────────── */
+/* All UI component styles: inputs, buttons, cards, map, avatar, etc. */
+
+/* ── Form inputs ────────────────────────────────────────────── */
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fffaf0;
+  color: var(--ink);
+  padding: 11px 12px;
+  line-height: 1.45;
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+/* ── Stat card ──────────────────────────────────────────────── */
+.stat {
+  min-height: 70px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 10px;
+}
+
+.stat strong { display: block; font-size: 22px; line-height: 1.1; }
+.stat span   { color: var(--muted); font-size: 12px; }
+
+/* ── XP bar ─────────────────────────────────────────────────── */
+.bar {
+  height: 12px;
+  border: 1px solid #cdbf9f;
+  border-radius: 99px;
+  background: #eee4cc;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--leaf), var(--gold), var(--brick));
+  transition: width var(--dur-base) var(--ease);
+}
+
+/* ── Course card ────────────────────────────────────────────── */
+.course,
+.mission {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 8px;
+  transition:
+    transform var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.course {
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.mission {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.course:hover,
+.course.active,
+.mission:hover,
+.mission.active {
+  transform: translateY(-1px);
+  border-color: var(--teal);
+  background: #eef8f7;
+}
+
+.course strong,
+.mission strong { display: block; overflow-wrap: anywhere; }
+
+.course small,
+.mission small {
+  display: block;
+  color: var(--muted);
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+/* ── Mark / Badge icons ─────────────────────────────────────── */
+.mark,
+.badge {
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+  flex: none;
+}
+
+.mark {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--teal);
+}
+
+.badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--leaf);
+}
+
+/* Cycle accent colours on subsequent items */
+.course:nth-child(2n) .mark,
+.mission:nth-child(2n) .badge { background: var(--brick); }
+.course:nth-child(3n) .mark,
+.mission:nth-child(3n) .badge { background: var(--blue); }
+.course:nth-child(4n) .mark,
+.mission:nth-child(4n) .badge { background: var(--plum); }
+
+.course-xp,
+.done {
+  color: var(--gold);
+  font-weight: 900;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+/* ── Mode toggle ────────────────────────────────────────────── */
+.mode {
+  display: inline-flex;
+  border: 1px solid #cdbf9f;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #eee4cc;
+  flex: none;
+}
+
+.mode button {
+  width: 44px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.mode button.active {
+  background: var(--ink);
+  color: white;
+}
+
+/* ── Quest map ──────────────────────────────────────────────── */
+.map {
+  position: relative;
+  min-height: 430px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(47, 125, 91, 0.2)    0 48px, transparent 49px),
+    radial-gradient(circle at 82% 24%, rgba(217, 154, 43, 0.23)  0 58px, transparent 59px),
+    radial-gradient(circle at 40% 78%, rgba(20, 122, 128, 0.16)  0 72px, transparent 73px),
+    linear-gradient(145deg, #e8efd9, #d9e9e6 52%, #efe1c0);
+}
+
+.path {
+  position: absolute;
+  inset: 42px 34px;
+  border: 8px dashed rgba(96, 84, 50, 0.32);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 45% 50% 34% 38%;
+  transform: rotate(-8deg);
+}
+
+.node {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  background: #fff8db;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 7px 0 rgba(23, 33, 31, 0.15);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.node:hover    { transform: scale(1.1); }
+.node.active   { background: #cfeeea; }
+.node.done     { background: #d8e8bf; }
+
+/* ── Avatar (CSS character) ─────────────────────────────────── */
+.avatar {
+  position: absolute;
+  left: var(--x, 12%);
+  top:  var(--y, 80%);
+  width: 56px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  transition: left var(--dur-slow) var(--ease), top var(--dur-slow) var(--ease);
+  filter: drop-shadow(0 10px 8px rgba(23, 33, 31, 0.22));
+}
+
+/* Head */
+.avatar::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f0c486;
+  border: 3px solid var(--ink);
+}
+
+/* Body */
+.avatar::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 34px;
+  width: 40px;
+  height: 26px;
+  border-radius: 8px 8px 14px 14px;
+  background: var(--brick);
+  border: 3px solid var(--ink);
+}
+
+/* ── Challenge area ─────────────────────────────────────────── */
+.challenge {
+  display: grid;
+  grid-template-rows: auto auto auto minmax(170px, auto);
+  gap: 12px;
+  min-width: 0;
+}
+
+/* ── Chips ──────────────────────────────────────────────────── */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fffaf0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ── Brief / Terminal / Answers ─────────────────────────────── */
+.brief,
+.terminal,
+.answers {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.brief {
+  background: var(--panel);
+  padding: 14px;
+  line-height: 1.5;
+}
+
+.brief strong { color: var(--brick); }
+
+.terminal {
+  min-height: 188px;
+  overflow: auto;
+  background: #17211f;
+  color: #edf8ef;
+  padding: 14px;
+  white-space: pre-wrap;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Terminal colouring */
+.prompt { color: #8fd19f; }
+.out    { color: #f0ca74; }
+.err    { color: #ff9b8f; }
+
+.answers {
+  background: var(--panel);
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+/* ── Answer buttons ─────────────────────────────────────────── */
+.answer {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fffaf0;
+  cursor: pointer;
+  text-align: left;
+  padding: 10px 12px;
+  line-height: 1.35;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.answer:hover   { border-color: var(--teal); background: #eef8f7; }
+.answer.correct { border-color: var(--leaf); background: #e3f0d8; }
+.answer.wrong   { border-color: var(--brick); background: #f8ddd4; }
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.primary,
+.ghost,
+.mini {
+  min-height: 42px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0 14px;
+  transition:
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease);
+}
+
+.primary {
+  border: 1px solid #8d6218;
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 4px 0 #8d6218;
+}
+
+.primary:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #8d6218;
+}
+
+.primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.ghost,
+.mini {
+  border: 1px solid var(--line);
+  background: #fffaf0;
+}
+
+.ghost:hover,
+.mini:hover { background: #eef8f7; border-color: var(--teal); }
+
+.mini { min-height: 34px; padding: 0 10px; }
+
+/* ── Codex content ──────────────────────────────────────────── */
+.codex h4     { margin-bottom: 8px; font-size: 18px; }
+.codex p      { margin-bottom: 12px; color: #2d403a; }
+
+.codex pre {
+  margin: 10px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #17211f;
+  color: #edf8ef;
+  padding: 12px;
+  overflow: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.note {
+  border: 1px solid #bed0a7;
+  border-radius: var(--radius);
+  background: #f3f8e8;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ── Loot grid ──────────────────────────────────────────────── */
+.loot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.loot {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  font-size: 22px;
+  font-weight: 900;
+  opacity: 0.45;
+  filter: grayscale(1);
+  transition:
+    opacity var(--dur-base) var(--ease),
+    filter   var(--dur-base) var(--ease);
+}
+
+.loot.active {
+  opacity: 1;
+  filter: none;
+  border-color: var(--teal);
+  background: #eef8f3;
+}
+
+/* ── Toast notification ─────────────────────────────────────── */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 40;
+  max-width: min(520px, calc(100vw - 30px));
+  background: var(--ink);
+  color: white;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+  transition:
+    opacity   180ms var(--ease),
+    transform 180ms var(--ease);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

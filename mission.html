@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LearnRPG — complete missions, earn XP, and master your chosen skill through gamified challenges." />
+  <title>LearnRPG — Mission Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/learn-nav.css" />
+</head>
+<body>
+
+  <!-- ── Top bar (back to dashboard + player stats) ───────────────── -->
+  <div class="learn-topbar" id="learnTopbar">
+    <a href="index.html" class="topbar-home" title="Home">⚔️ LearnRPG</a>
+    <div class="topbar-center">
+      <span class="topbar-stat">🏆 Level <strong id="level">1</strong></span>
+      <span class="topbar-stat">⚡ XP <strong id="courseXp">0</strong></span>
+      <span class="topbar-stat">🔥 Streak <strong id="streak">0</strong></span>
+    </div>
+    <a href="learn.html" class="topbar-back" id="topbarBack">← Dashboard</a>
+  </div>
+
+  <!-- ── Login overlay ─────────────────────────────────────────────── -->
+  <div class="login" id="login">
+    <form class="login-card" id="loginForm">
+      <h1>LearnRPG</h1>
+      <p>Choose a player name. Your XP, solved missions, and progress stay saved in this browser.</p>
+      <div class="login-row">
+        <input class="input" id="nameInput" autocomplete="username" placeholder="Player name" required />
+        <button class="primary" type="submit" id="enterBtn">Enter</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ── App shell for Mission Workspace ───────────────────────────── -->
+  <div class="app workspace-app">
+
+    <!-- Main arena (left column) -->
+    <main class="arena">
+      <header class="arena-head">
+        <div>
+          <h2 id="missionTitle">Mission</h2>
+          <p id="missionSummary">Loading mission details...</p>
+        </div>
+        <div class="mode">
+          <button id="mapMode" class="active" title="Quest map">M</button>
+          <button id="focusMode" title="Focus mode">F</button>
+        </div>
+      </header>
+
+      <section class="workspace" id="workspace">
+        <div class="map" id="map">
+          <div class="path"></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+
+        <div class="challenge">
+          <div class="chips" id="chips"></div>
+          <div class="brief" id="brief"></div>
+          <div class="terminal" id="terminal"></div>
+          <div class="answers" id="answers"></div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="ghost" id="resetCourse">Reset Course</button>
+        <button class="primary" id="nextMission" disabled>Next Mission</button>
+      </div>
+    </main>
+
+    <!-- Right mentor panel (right column) -->
+    <aside class="mentor">
+      <div class="mentor-head">
+        <h3>Mentor Notes</h3>
+        <p id="mentorLine">Solve the mission first. Notes unlock the exact reasoning after a real attempt.</p>
+      </div>
+      <div class="tabs">
+        <button class="active" data-tab="concept" id="tabConcept">Concept</button>
+        <button data-tab="pattern" id="tabPattern">Pattern</button>
+        <button data-tab="loot" id="tabLoot">Loot</button>
+      </div>
+      <div class="codex" id="codex"></div>
+    </aside>
+
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Hidden dummy elements to support full data/profile logic in render.js -->
+  <div style="display: none;">
+    <h1 id="appTitle"></h1>
+    <p id="tagline"></p>
+    <strong id="player"></strong>
+    <span id="playerMeta"></span>
+    <div id="xpFill"></div>
+    <div id="catalog"></div>
+    <div id="missions"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data/courses.js"></script>
+  <script src="js/data/roles.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
