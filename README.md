@@ -162,6 +162,21 @@ js/data/courses.js
 
 Add a new key to the `COURSES` object using the existing schema.
 
+## Home page
+
+A gamified learning platform where users master technical skills through RPG-style progression.
+
+![Home](screenshots/home.png)
+![Home](screenshots/home1.png)
+
+## Learning Dashboards 
+
+![Learn](screenshots/quest.png)
+
+## Missions
+
+![Mission](screenshots/task.png)
+
 ## Adding Career Paths
 
 All career path data lives in:
